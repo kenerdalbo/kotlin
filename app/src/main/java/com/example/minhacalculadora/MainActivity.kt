@@ -61,11 +61,27 @@ class MainActivity : AppCompatActivity() {
             nomes[1] = "João"
             nomes[2] = "José"
             */
+            /* arrayOf
             val nomes = arrayOf("Maria", "Zaza", "Pedro")
-            var texto : String = ""
+
+
             nomes.sort()
-            for (valor in nomes){
-                texto+= valor
+            */
+            var texto : String = ""
+            val salarios = DoubleArray(3)
+            salarios[0] = 1000.0
+            salarios[1] = 3000.0
+            salarios[2] = 500.0
+
+            salarios.forEachIndexed { index, salario ->
+                salarios[index] = salario * 1.1
+            }
+
+            val bonus = doubleArrayOf(1500.0, 1250.0, 5000.0)
+            bonus.sort()
+
+            for (valor in salarios){
+                texto+= valor.toString() +" "
             }
 
             resultado.setText("nomes  $texto")
