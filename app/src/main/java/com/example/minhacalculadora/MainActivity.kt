@@ -20,10 +20,12 @@ class MainActivity : AppCompatActivity() {
             val joao = Funcionario("João", 1000.0, "CLT")
             val pedro = Funcionario("Pedro", 4000.0, "CLT")
             val maria = Funcionario("Maria", 3000.0,"PJ")
+            val antonio = Funcionario("Antônio", 5000.0, "CLT")
+            val manuel = Funcionario("Manuel", 6000.0,"PJ")
 
-
-            val funcionarios = listOf( joao, pedro, maria)
-
+            val funcionarios = setOf( joao, pedro, maria)
+            val funcionarios2 = setOf(antonio, manuel)
+            val funcionarios3 = setOf(manuel)
 
 
             funcionarios.forEach{Log.d("VERLOG", it.toString())}
@@ -42,7 +44,21 @@ class MainActivity : AppCompatActivity() {
                 imprimir+=it.toString()
 
             }
+            imprimir+="\nunion\n"
+            val resultUnion = funcionarios.union(funcionarios2)
+            resultUnion.forEach{     imprimir+=it.toString()}
 
+            imprimir+="\nsubtract\n"
+            val resultSubtract = funcionarios2.subtract(funcionarios3)
+            resultSubtract.forEach{
+                imprimir+=it.toString()
+            }
+
+            imprimir+="\nintersect\n"
+            val resultintersect = funcionarios2.intersect(funcionarios3)
+            resultintersect.forEach{
+                imprimir+=it.toString()
+            }
             Log.d("VERLOG", "Resultado: $imprimir")
         }
     }
