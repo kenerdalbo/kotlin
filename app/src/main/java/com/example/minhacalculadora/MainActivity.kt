@@ -17,48 +17,18 @@ class MainActivity : AppCompatActivity() {
 
         btCalcular.setOnClickListener{
             var imprimir =""
-            val joao = Funcionario("João", 1000.0, "CLT")
-            val pedro = Funcionario("Pedro", 4000.0, "CLT")
-            val maria = Funcionario("Maria", 3000.0,"PJ")
-            val antonio = Funcionario("Antônio", 5000.0, "CLT")
-            val manuel = Funcionario("Manuel", 6000.0,"PJ")
+            imprimir+="\nMap\n"
+            val pair: Pair<String, Double> = Pair("Joao",1000.0)
+            val map1= mapOf(pair)
+            map1.forEach{(k,v)->imprimir+="\nChave: $k - Valor: $v"}
 
-            val funcionarios = setOf( joao, pedro, maria)
-            val funcionarios2 = setOf(antonio, manuel)
-            val funcionarios3 = setOf(manuel)
+            val map2 = mapOf(
+                    "Pedro" to 2500.0,
+                    "Maria" to 3000.0
 
-
-            funcionarios.forEach{Log.d("VERLOG", it.toString())}
-            Log.d("VERLOG", "------------------------")
-            Log.d("VERLOG", funcionarios.find{it.nome=="Maria"}.toString())
-            Log.d("VERLOG", "testando")
-            imprimir+="\nsortedBy\n"
-            funcionarios.sortedBy { it.salario }.forEach{
-                imprimir+=it.toString()
-
-            }
-
-            imprimir+="\ngroupBy\n"
-            funcionarios.groupBy { it.tipoContratacao }.forEach{
-
-                imprimir+=it.toString()
-
-            }
-            imprimir+="\nunion\n"
-            val resultUnion = funcionarios.union(funcionarios2)
-            resultUnion.forEach{     imprimir+=it.toString()}
-
-            imprimir+="\nsubtract\n"
-            val resultSubtract = funcionarios2.subtract(funcionarios3)
-            resultSubtract.forEach{
-                imprimir+=it.toString()
-            }
-
-            imprimir+="\nintersect\n"
-            val resultintersect = funcionarios2.intersect(funcionarios3)
-            resultintersect.forEach{
-                imprimir+=it.toString()
-            }
+            )
+            imprimir+="\n__________________\nMap usando infix\n"
+            map2.forEach{(k,v)->imprimir+="\nChave: $k - Valor: $v"}
             Log.d("VERLOG", "Resultado: $imprimir")
         }
     }
