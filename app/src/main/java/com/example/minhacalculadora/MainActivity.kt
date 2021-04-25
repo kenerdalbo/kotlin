@@ -3,6 +3,7 @@ package com.example.minhacalculadora
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -66,8 +67,10 @@ class MainActivity : AppCompatActivity() {
 
 
             nomes.sort()
-            */
-            var texto : String = ""
+
+
+             */
+/*
             val salarios = DoubleArray(3)
             salarios[0] = 1000.0
             salarios[1] = 3000.0
@@ -76,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             salarios.forEachIndexed  { index, salario ->
                 salarios[index] = salario * 1.1
             }
-
+            var texto : String = ""
             val bonus = doubleArrayOf(1500.0, 1250.0, 5000.0)
             bonus.sort()
 
@@ -85,6 +88,30 @@ class MainActivity : AppCompatActivity() {
             }
 
             resultado.setText("nomes  $texto")
+
+
+            Log.d("teste", "testando")
+
+ */
+            val salarios = doubleArrayOf(500.0, 350.0, 967.0)
+
+            for (salario in salarios){
+                Log.d("VERLOG", "salario: ${salario}")
+            }
+            Log.d("VERLOG", "max Maior Salário: ${salarios.max()}")
+            Log.d("VERLOG", "min Menor Salário: ${salarios.min()}")
+            Log.d("VERLOG", "average Media Salário: ${salarios.average()}")
+
+            val salariosMaiorQue500 = salarios.filter{it>500}
+            Log.d("VERLOG", "------------------------------------")
+            salariosMaiorQue500.forEach{Log.d("VERLOG", "Mostre os salários maior que 500: $it")}
+            Log.d("VERLOG", "------------------------------------")
+            Log.d("VERLOG", "count . Qts salarios estão entre 500 e 3000: ${salarios.count{it in 500.0..3000.0}}")
+            Log.d("VERLOG", "------------------------------------")
+            Log.d("VERLOG", "find 967.0 em salarios : ${salarios.find{it == 967.0}}")
+
+            Log.d("VERLOG", "------------------------------------")
+            Log.d("VERLOG", "any existe o salario 967.0 em salarios : ${salarios.any{it == 967.0}}")
 
         }
     }
