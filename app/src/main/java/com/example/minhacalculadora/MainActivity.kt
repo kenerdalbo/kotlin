@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             salarios[1] = 3000.0
             salarios[2] = 500.0
 
-            salarios.forEachIndexed { index, salario ->
+            salarios.forEachIndexed  { index, salario ->
                 salarios[index] = salario * 1.1
             }
 
