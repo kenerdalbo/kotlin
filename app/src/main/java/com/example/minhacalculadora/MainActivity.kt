@@ -98,8 +98,8 @@ class MainActivity : AppCompatActivity() {
             for (salario in salarios){
                 Log.d("VERLOG", "salario: ${salario}")
             }
-            Log.d("VERLOG", "max Maior Salário: ${salarios.max()}")
-            Log.d("VERLOG", "min Menor Salário: ${salarios.min()}")
+            Log.d("VERLOG", "max Maior Salário: ${salarios.maxOrNull()}")
+            Log.d("VERLOG", "min Menor Salário: ${salarios.minOrNull()}")
             Log.d("VERLOG", "average Media Salário: ${salarios.average()}")
 
             val salariosMaiorQue500 = salarios.filter{it>500}
